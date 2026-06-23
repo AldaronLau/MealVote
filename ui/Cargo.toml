@@ -1,0 +1,5 @@
+[package]
+name = "ui"
+edition = "2024"
+
+[dependencies]
