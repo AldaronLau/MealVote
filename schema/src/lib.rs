@@ -1,4 +1,4 @@
-/// Internet communication specification
+//! Internet communication specification
 
 pub mod delete {}
 
