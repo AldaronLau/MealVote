@@ -14,3 +14,12 @@ curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-
 # Install Wasm-Bindgen
 cargo binstall wasm-bindgen-cli -y
 ```
+
+## Xtask
+
+This project uses the cargo-xtask pattern.
+
+```bash
+# Build the release binary for the user interface
+cargo xtask build-wasm
+```

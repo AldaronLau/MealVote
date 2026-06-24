@@ -1,6 +1,6 @@
 mod logger;
 
-use async_main::{async_main, LocalSpawner};
+use async_main::{LocalSpawner, async_main};
 
 use self::logger::Logger;
 

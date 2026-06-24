@@ -18,7 +18,8 @@ fn compile() {
             "ui",
             "--target",
             "wasm32-unknown-unknown",
-            "--release",
+            "--profile",
+            "release-wasm",
         ])
         .status()
         .expect("Failed to build");
