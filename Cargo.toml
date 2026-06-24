@@ -63,9 +63,14 @@ version = "0.1.0"
 
 [workspace.dependencies.web-sys]
 version = "0.3.102"
+features = ["console"]
+
+[workspace.dependencies.yansi]
+version = "1.0.1"
 
 [profile.release-wasm]
 inherits = "release"
 panic = "abort"
 opt-level = 's'
 lto = true
+strip = false
