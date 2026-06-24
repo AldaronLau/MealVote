@@ -2,6 +2,16 @@
 
 An app for planning meals for a family or individual
 
+## Repository Layout
+
+ - `build`: (Not checked into git) Where the web UI is compiled to
+ - `res`: Asset files
+ - `schema`: Crate for handling requests and responses in the MuON format
+ - `server`: Crate that serves requests and stores a database
+ - `ui`: Crate that compiles to the WebAssembly user interface
+ - `validation`: Crate for asserting validations for both the ui and server
+ - `xtask`: Helper tools for development
+
 ## Prerequisites
 
 ```bash
