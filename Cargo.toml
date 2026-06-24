@@ -1,7 +1,70 @@
 [workspace]
 resolver = "3"
 members = [
+  "schema",
   "server",
   "ui",
   "xtask",
 ]
+
+[workspace.dependencies.async_main]
+version = "0.4.0"
+features = ["pasts"]
+
+[workspace.dependencies.axum]
+version = "0.8.9"
+
+[workspace.dependencies.clot]
+version = "0.1.0"
+
+[workspace.dependencies.event_iterator]
+version = "0.2.2"
+
+[workspace.dependencies.fetchy]
+version = "0.2.2"
+
+[workspace.dependencies.hatmil]
+version = "1.5.0"
+
+[workspace.dependencies.human]
+version = "0.2.0"
+
+[workspace.dependencies.js-sys]
+version = "0.3.102"
+
+[workspace.dependencies.log]
+version = "0.4.33"
+
+[workspace.dependencies.muon-rs]
+version = "0.2.3"
+
+[workspace.dependencies.pasts]
+version = "0.14.3"
+
+[workspace.dependencies.ranch]
+version = "0.6.0"
+
+[workspace.dependencies.serde]
+version = "1.0.228"
+
+[workspace.dependencies.serde_json]
+version = "1.0.150"
+
+[workspace.dependencies.tokio]
+version = "1.52.3"
+features = ["full"]
+
+[workspace.dependencies.tower]
+version = "0.5.3"
+
+[workspace.dependencies.web_panic_hook]
+version = "0.1.0"
+
+[workspace.dependencies.web-sys]
+version = "0.3.102"
+
+[profile.release-wasm]
+inherits = "release"
+panic = "abort"
+opt-level = 's'
+lto = true

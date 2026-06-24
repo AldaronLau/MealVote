@@ -1,0 +1,7 @@
+[package]
+name = "schema"
+edition = "2024"
+
+[dependencies]
+muon-rs.workspace = true
+serde.workspace = true

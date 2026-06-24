@@ -2,12 +2,7 @@
 name = "server"
 edition = "2024"
 
-[dependencies.axum]
-version = "0.8.9"
-
-[dependencies.tokio]
-version = "1.52.3"
-features = ["full"]
-
-[dependencies.tower]
-version = "0.5.3"
+[dependencies]
+axum.workspace = true
+tokio.workspace = true
+tower.workspace = true

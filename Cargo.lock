@@ -257,6 +257,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "muon-rs"
+version = "0.2.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9f02e0f7cd1f8fb8717cc9ae2375f2b3bcd732ca3c2df81447d71ee4da09be7b"
+dependencies = [
+ "serde",
+]
+
+[[package]]
 name = "once_cell"
 version = "1.21.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -329,6 +338,14 @@ name = "ryu"
 version = "1.0.23"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9774ba4a74de5f7b1c1451ed6cd5285a32eddb5cccb8cc655a4e50009e06477f"
+
+[[package]]
+name = "schema"
+version = "0.0.0"
+dependencies = [
+ "muon-rs",
+ "serde",
+]
 
 [[package]]
 name = "scopeguard"
