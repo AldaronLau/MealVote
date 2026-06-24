@@ -5,13 +5,6 @@ use yansi::Paint;
 
 fn compile() {
     let status = Command::new("cargo")
-        .env(
-            "RUSTFLAGS",
-            "--remap-path-prefix=$PWD=_ \
-             --remap-path-prefix=$HOME/.local/lib/cargo=- \
-             --remap-path-prefix=$HOME/.local/lib/rustup=+ \
-             --remap-path-prefix=$HOME=%",
-        )
         .args([
             "build",
             "-p",
