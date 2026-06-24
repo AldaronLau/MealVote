@@ -13,6 +13,8 @@ sudo dnf install binaryen wabt
 curl -L --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/cargo-bins/cargo-binstall/main/install-from-binstall-release.sh | bash
 # Install Wasm-Bindgen
 cargo binstall wasm-bindgen-cli -y
+# Install simple http server for testing
+cargo binstall simple-http-server
 ```
 
 ## Xtask
@@ -20,6 +22,8 @@ cargo binstall wasm-bindgen-cli -y
 This project uses the cargo-xtask pattern.
 
 ```bash
-# Build the release binary for the user interface
+# Build the release binary and HTML for the user interface
 cargo xtask build-wasm
+# Build just the HTML
+cargo xtask build-html
 ```

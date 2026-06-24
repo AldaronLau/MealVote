@@ -84,4 +84,5 @@ pub fn build_wasm(_opts: &dyn Opts) {
         "       {} Wasm generated in `build`",
         "Done!".green().bold()
     );
+    crate::build_html::build_html(_opts);
 }
