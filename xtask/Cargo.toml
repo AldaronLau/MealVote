@@ -3,3 +3,4 @@ name = "xtask"
 edition = "2024"
 
 [dependencies]
+clot.workspace = true
