@@ -4,6 +4,7 @@ members = [
   "schema",
   "server",
   "ui",
+  "validation",
   "xtask",
 ]
 
