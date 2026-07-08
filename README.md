@@ -6,6 +6,7 @@ An app for planning meals for a family or individual
 
  - `build`: (Not checked into git) Where the web UI is compiled to
  - `res`: Asset files
+ - `pages`: Crate for generating HTML pages for the ui
  - `schema`: Crate for handling requests and responses in the MuON format
  - `server`: Crate that serves requests and stores a database
  - `ui`: Crate that compiles to the WebAssembly user interface

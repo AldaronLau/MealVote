@@ -1,0 +1,6 @@
+[package]
+name = "pages"
+edition = "2024"
+
+[dependencies]
+hatmil.workspace = true

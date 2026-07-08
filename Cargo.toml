@@ -1,6 +1,7 @@
 [workspace]
 resolver = "3"
 members = [
+  "pages",
   "schema",
   "server",
   "ui",
@@ -9,6 +10,9 @@ members = [
 ]
 
 ################################################################################
+
+[workspace.dependencies.pages]
+path = "./pages"
 
 [workspace.dependencies.schema]
 path = "./schema"
