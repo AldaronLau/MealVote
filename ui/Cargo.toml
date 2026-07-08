@@ -7,6 +7,7 @@ async_main.workspace = true
 event_iterator.workspace = true
 hatmil.workspace = true
 log.workspace = true
+pages.workspace = true
 pasts.workspace = true
 web_panic_hook.workspace = true
 web-sys.workspace = true

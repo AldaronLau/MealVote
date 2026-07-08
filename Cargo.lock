@@ -115,6 +115,7 @@ version = "0.0.0"
 dependencies = [
  "clot",
  "hatmil",
+ "pages",
  "yansi",
 ]
 
@@ -784,6 +785,7 @@ dependencies = [
  "event_iterator",
  "hatmil",
  "log",
+ "pages",
  "pasts",
  "web-sys",
  "web_panic_hook",
