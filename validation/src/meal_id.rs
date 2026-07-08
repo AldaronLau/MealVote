@@ -8,7 +8,9 @@ pub enum Error {
     TooLarge(u16),
 }
 
-#[derive(Clone, PartialEq, Eq, Hash, Debug)]
+#[derive(
+    Clone, PartialEq, Eq, Hash, Debug, serde::Deserialize, serde::Serialize,
+)]
 pub struct MealId(RangedNonZeroU16<1, MEAL_ID_MAX_VALUE>);
 
 impl MealId {

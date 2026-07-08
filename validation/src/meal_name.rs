@@ -7,7 +7,9 @@ pub enum Error {
 }
 
 /// Limited character count meal name
-#[derive(Clone, PartialEq, Eq, Hash, Debug)]
+#[derive(
+    Clone, PartialEq, Eq, Hash, Debug, serde::Deserialize, serde::Serialize,
+)]
 pub struct MealName(String);
 
 impl MealName {

@@ -5,3 +5,7 @@ edition = "2024"
 [dependencies]
 muon-rs.workspace = true
 serde.workspace = true
+validation.workspace = true
+
+[dev-dependencies]
+insta.workspace = true

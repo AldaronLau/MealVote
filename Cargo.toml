@@ -8,6 +8,16 @@ members = [
   "xtask",
 ]
 
+################################################################################
+
+[workspace.dependencies.schema]
+path = "./schema"
+
+[workspace.dependencies.validation]
+path = "./validation"
+
+################################################################################
+
 [workspace.dependencies.async_main]
 version = "0.4.0"
 features = ["pasts"]
@@ -30,6 +40,9 @@ version = "1.5.0"
 [workspace.dependencies.human]
 version = "0.2.0"
 
+[workspace.dependencies.insta]
+version = "1.48.0"
+
 [workspace.dependencies.js-sys]
 version = "0.3.102"
 
@@ -44,9 +57,11 @@ version = "0.14.3"
 
 [workspace.dependencies.ranch]
 version = "0.6.0"
+features = ["serde"]
 
 [workspace.dependencies.serde]
 version = "1.0.228"
+features = ["derive"]
 
 [workspace.dependencies.serde_json]
 version = "1.0.150"
@@ -67,6 +82,8 @@ features = ["console"]
 
 [workspace.dependencies.yansi]
 version = "1.0.1"
+
+################################################################################
 
 [profile.release-wasm]
 inherits = "release"
