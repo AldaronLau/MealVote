@@ -3,3 +3,4 @@ name = "validation"
 edition = "2024"
 
 [dependencies]
+ranch.workspace = true
