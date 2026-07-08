@@ -10,7 +10,7 @@ pub enum Error {
 #[derive(
     Clone, PartialEq, Eq, Hash, Debug, serde::Deserialize, serde::Serialize,
 )]
-pub struct MealName(String);
+pub struct MealName(Box<str>);
 
 impl MealName {
     pub fn new(name: String) -> Result<Self> {
@@ -29,7 +29,13 @@ impl MealName {
         invalid_char
             .map(|c| Err(Error::InvalidText(c)))
             .unwrap_or(Ok(()))?;
-        Ok(Self(name))
+        Ok(Self(name.into()))
+    }
+}
+
+impl AsRef<str> for MealName {
+    fn as_ref(&self) -> &str {
+        self.0.as_ref()
     }
 }
 
