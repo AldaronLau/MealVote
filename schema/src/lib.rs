@@ -2,7 +2,9 @@
 
 pub mod delete {}
 
-pub mod get {}
+pub mod get {
+    pub mod meals;
+}
 
 pub mod post {}
 

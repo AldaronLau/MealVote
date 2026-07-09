@@ -63,6 +63,14 @@ The server stores two database files per instance:
 
 ## HTTP
 
+ - GET `/api/meals/list`
+   ```muon
+   :::
+   meal: list record
+     id: int >0 <=1_200
+     name: text >0 <=100
+   :::
+   ```
  - PUT `/api/votes/meal`
    ```muon
    :::

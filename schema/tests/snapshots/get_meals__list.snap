@@ -1,0 +1,8 @@
+---
+source: schema/tests/get_meals.rs
+expression: muon
+---
+meal: 1
+  name: Changas
+meal: 2
+  name: Veggie Pasta
