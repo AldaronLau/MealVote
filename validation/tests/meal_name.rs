@@ -10,4 +10,5 @@ fn meal_name() {
         MealName::new("\0".to_string()),
         Err(Error::InvalidText('\0')),
     );
+    assert_matches!(MealName::new(String::new()), Err(Error::Empty));
 }

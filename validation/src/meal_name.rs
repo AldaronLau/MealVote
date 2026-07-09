@@ -2,6 +2,7 @@ pub type Result<T = (), E = Error> = std::result::Result<T, E>;
 
 #[derive(Clone, PartialEq, Eq, Hash, Debug)]
 pub enum Error {
+    Empty,
     TooLong(usize),
     InvalidText(char),
 }
@@ -23,6 +24,7 @@ impl MealName {
             })
             .count();
 
+        (char_count > 0).then_some(()).ok_or(Error::Empty)?;
         (char_count <= MEAL_NAME_MAX_CHARS)
             .then_some(())
             .ok_or(Error::TooLong(char_count))?;
