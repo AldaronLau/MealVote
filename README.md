@@ -41,6 +41,8 @@ cargo binstall simple-http-server
 This project uses the cargo-xtask pattern.
 
 ```bash
+# Show help
+cargo xtask
 # Build the release binary and HTML for the user interface
 cargo xtask build-wasm
 # Build just the HTML
@@ -58,6 +60,8 @@ The server stores two database files per instance:
    user: list record
      id: int >0 <=1_200
      name: text >0 <=64
+     email: text >=6 <=254
+     verified: bool
    ```
  - `/homes.muon` — Homes registered in the system
    ```muon
@@ -101,9 +105,11 @@ The server stores three database files per home (`/{home_id: int >0 <=1_024}/`):
  - Meal list / login (default page), lists the meals available
  - Meal creation / editing page
 
-## HTTP
+## HTTP API
 
-### `/api/meals`
+All are at `/{meal_vote_api}`
+
+### `/{home_id}/meals`
  
  - GET Reponse (role: **access**)
    ```muon
@@ -114,7 +120,7 @@ The server stores three database files per home (`/{home_id: int >0 <=1_024}/`):
    :::
    ```
 
-### `/api/meals/{meal_id: int >0 <=1_200}`
+### `/{home_id}/meals/{meal_id: int >0 <=1_200}`
 
  - GET Response (role: **access**)
    ```muon
@@ -124,7 +130,7 @@ The server stores three database files per home (`/{home_id: int >0 <=1_024}/`):
    :::
    ```
 
-### `/api/votes/{meal_id: int >0 <=1_200}`
+### `/{home_id}/votes/{meal_id: int >0 <=1_200}`
  - PUT Request (role: **vote**)
    ```muon
    :::
