@@ -95,8 +95,9 @@ The server stores three database files per home (`/{home_id: int >0 <=1_024}/`):
      home_id: int >0 <=1_024
      user_id: int >0 <=1_200
      role: list choice
-       access
        cook
+       edit
+       view
        vote
    ```
 
@@ -111,7 +112,7 @@ All are at `/{meal_vote_api}`
 
 ### `/{home_id}/meals`
  
- - GET Reponse (role: **access**)
+ - GET Reponse (role: **view**)
    ```muon
    :::
    meal: list record
@@ -122,12 +123,26 @@ All are at `/{meal_vote_api}`
 
 ### `/{home_id}/meals/{meal_id: int >0 <=1_200}`
 
- - GET Response (role: **access**)
+ - GET Response (role: **view**)
    ```muon
    :::
    name: text >0 <=100
    desc: text <=32_000
    :::
+   ```
+ - POST Request (role: **edit**)
+   ```muon
+   :::
+   name: text >0 <=100
+   desc: text <=32_000
+   ::: 
+   ```
+ - PATCH Request (role: **edit**)
+   ```muon
+   :::
+   name: optional text >0 <=100
+   desc: optional text <=32_000
+   ::: 
    ```
 
 ### `/{home_id}/votes/{meal_id: int >0 <=1_200}`
@@ -135,5 +150,25 @@ All are at `/{meal_vote_api}`
    ```muon
    :::
    has_vote: bool
+   :::
+   ```
+
+### `/{home_id}/roles/{user_id: int >0 <=1_200}`
+ - GET Request (role: **vote**)
+   ```muon
+   :::
+   cook: bool
+   edit: bool
+   view: bool
+   vote: bool
+   :::
+   ```
+ - PUT Request (role: **edit**)
+   ```muon
+   :::
+   cook: bool
+   edit: bool
+   view: bool
+   vote: bool
    :::
    ```
