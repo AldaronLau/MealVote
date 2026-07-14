@@ -154,7 +154,7 @@ All are at `/{meal_vote_api}`
    ```
 
 ### `/{home_id}/roles/{user_id: int >0 <=1_200}`
- - GET Request (role: **vote**)
+ - GET Request (role: **edit**)
    ```muon
    :::
    cook: bool
