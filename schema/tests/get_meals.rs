@@ -1,15 +1,15 @@
-use schema::get::meals::{List, ListMeal};
+use schema::get::meals::{Muon, Meal};
 use validation::{meal_id::MealId, meal_name::MealName};
 
 #[test]
 fn list() {
-    let meal_list = List {
+    let meal_list = Muon {
         meal: Vec::from([
-            ListMeal {
+            Meal {
                 id: MealId::new(1).unwrap(),
                 name: MealName::new("Changas".to_string()).unwrap(),
             },
-            ListMeal {
+            Meal {
                 id: MealId::new(2).unwrap(),
                 name: MealName::new("Veggie Pasta".to_string()).unwrap(),
             },

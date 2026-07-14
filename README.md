@@ -54,6 +54,7 @@ cargo xtask build-html
 The server stores two database files per instance:
 
  - `/meals.json` — The meals available to vote for
+ - `/users.json` — Who exists in the system
  - `/votes.json` — Who voted for which meals
 
 ## Pages
@@ -63,7 +64,7 @@ The server stores two database files per instance:
 
 ## HTTP
 
- - GET `/api/meals/list`
+ - GET `/api/meals`
    ```muon
    :::
    meal: list record
@@ -71,10 +72,9 @@ The server stores two database files per instance:
      name: text >0 <=100
    :::
    ```
- - PUT `/api/votes/meal`
+ - PUT `/api/votes/{meal_id: int >0 <=1_200}`
    ```muon
    :::
-   meal_id: int >0 <=1_200
-   vote: bool
+   has_vote: bool
    :::
    ```

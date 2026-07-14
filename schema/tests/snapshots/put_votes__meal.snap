@@ -2,5 +2,4 @@
 source: schema/tests/put_votes.rs
 expression: muon
 ---
-meal_id: 1
-vote: true
+has_vote: true
