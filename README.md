@@ -57,17 +57,21 @@ The server stores two database files per instance:
 
  - `/users.muon` — Who exists in the system
    ```muon
+   :::
    user: list record
      id: int >0 <=1_200
      name: text >0 <=64
      email: text >=6 <=254
      verified: bool
+   :::
    ```
  - `/homes.muon` — Homes registered in the system
    ```muon
+   :::
    home: list record
      id: int >0 <=1_024
      name: text >0 <=50
+   :::
    ```
 
 The server stores three database files per home (`/{home_id: int >0 <=1_024}/`):
@@ -83,13 +87,16 @@ The server stores three database files per home (`/{home_id: int >0 <=1_024}/`):
    ```
  - `/votes.muon` — Who voted for which meals
    ```muon
+   :::
    vote: list record
      id: int >0 <=1_000_000
      meal_id: int >0 <=1_200
      user_id: int >0 <=1_200
+   :::
    ```
  - `/roles.muon` - Who has what role for the home
    ```muon
+   :::
    vote: list record
      id: int >0 <=1_500_000
      home_id: int >0 <=1_024
@@ -99,6 +106,7 @@ The server stores three database files per home (`/{home_id: int >0 <=1_024}/`):
        edit
        view
        vote
+   :::
    ```
 
 ## Pages
