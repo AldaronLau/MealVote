@@ -1,7 +1,9 @@
+
 use validation::{meal_id::MealId, meal_name::MealName};
 
+/// List for [`Get`] request.
 #[derive(serde::Deserialize, serde::Serialize)]
-pub struct Meal {
+pub struct GetResponseMeal {
     pub id: MealId,
     pub name: MealName,
 }
@@ -10,6 +12,6 @@ pub struct Meal {
 ///
 /// Get a list of available meals.
 #[derive(serde::Deserialize, serde::Serialize)]
-pub struct Muon {
-    pub meal: Vec<Meal>,
+pub struct GetResponse {
+    pub meal: Vec<GetResponseMeal>,
 }

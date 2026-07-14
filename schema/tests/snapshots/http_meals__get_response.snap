@@ -1,5 +1,5 @@
 ---
-source: schema/tests/get_meals.rs
+source: schema/tests/http_meals.rs
 expression: muon
 ---
 meal: 1

@@ -12,7 +12,7 @@ Non-code folders:
 Shared library crates:
 
  - `pages`: Crate for generating HTML pages for the ui
- - `schema`: Crate for handling requests and responses in the MuON format
+ - `schema`: Crate for handling requests and responses, and database MuON format
  - `validation`: Crate for asserting validations for both the ui and server
 
 Binary crates:
@@ -53,9 +53,9 @@ cargo xtask build-html
 
 The server stores two database files per instance:
 
- - `/meals.json` — The meals available to vote for
- - `/users.json` — Who exists in the system
- - `/votes.json` — Who voted for which meals
+ - `/meals.muon` — The meals available to vote for
+ - `/users.muon` — Who exists in the system
+ - `/votes.muon` — Who voted for which meals
 
 ## Pages
 
@@ -64,7 +64,9 @@ The server stores two database files per instance:
 
 ## HTTP
 
- - GET `/api/meals`
+### `/api/meals`
+ 
+ - GET Reponse
    ```muon
    :::
    meal: list record
@@ -72,7 +74,9 @@ The server stores two database files per instance:
      name: text >0 <=100
    :::
    ```
- - PUT `/api/votes/{meal_id: int >0 <=1_200}`
+
+### `/api/votes/{meal_id: int >0 <=1_200}`
+ - PUT Request
    ```muon
    :::
    has_vote: bool

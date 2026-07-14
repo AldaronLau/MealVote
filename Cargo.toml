@@ -67,9 +67,6 @@ features = ["serde"]
 version = "1.0.228"
 features = ["derive"]
 
-[workspace.dependencies.serde_json]
-version = "1.0.150"
-
 [workspace.dependencies.tokio]
 version = "1.52.3"
 features = ["full"]

@@ -1,21 +1,21 @@
-use schema::get::meals::{Muon, Meal};
+use schema::http::meals::{GetResponseMeal, GetResponse};
 use validation::{meal_id::MealId, meal_name::MealName};
 
 #[test]
-fn list() {
-    let meal_list = Muon {
+fn get_response() {
+    let get = GetResponse {
         meal: Vec::from([
-            Meal {
+            GetResponseMeal {
                 id: MealId::new(1).unwrap(),
                 name: MealName::new("Changas".to_string()).unwrap(),
             },
-            Meal {
+            GetResponseMeal {
                 id: MealId::new(2).unwrap(),
                 name: MealName::new("Veggie Pasta".to_string()).unwrap(),
             },
         ]),
     };
-    let muon = muon_rs::to_string(&meal_list).unwrap();
+    let muon = muon_rs::to_string(&get).unwrap();
     eprintln!("{muon}");
 
     insta::assert_snapshot!(muon);

@@ -1,5 +1,5 @@
 ---
-source: schema/tests/put_votes.rs
+source: schema/tests/http_votes.rs
 expression: muon
 ---
 has_vote: true
