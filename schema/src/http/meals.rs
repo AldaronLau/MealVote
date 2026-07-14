@@ -1,4 +1,3 @@
-
 use validation::{meal_id::MealId, meal_name::MealName};
 
 /// List for [`Get`] request.

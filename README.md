@@ -66,7 +66,7 @@ The server stores two database files per instance:
 
 ### `/api/meals`
  
- - GET Reponse
+ - GET Reponse (role: **access**)
    ```muon
    :::
    meal: list record
@@ -76,7 +76,7 @@ The server stores two database files per instance:
    ```
 
 ### `/api/votes/{meal_id: int >0 <=1_200}`
- - PUT Request
+ - PUT Request (role: **vote**)
    ```muon
    :::
    has_vote: bool

@@ -1,4 +1,4 @@
-use schema::http::meals::{GetResponseMeal, GetResponse};
+use schema::http::meals::{GetResponse, GetResponseMeal};
 use validation::{meal_id::MealId, meal_name::MealName};
 
 #[test]
