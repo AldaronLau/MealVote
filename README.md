@@ -63,6 +63,14 @@ The server stores two database files per instance:
      name: text >0 <=64
      email: text >=6 <=254
      verified: bool
+     # Generated code for email authentication
+     code: optional text >=50 <=50
+     # Salted password/passcode (unsalted pass acessed by email + code)
+     pass: optional text >=50 <=50
+     # Generated salt (regenerated for each new pass)
+     salt: optional text >=50 <=50
+     # Code or password/passcode expiry (only one allowed)
+     expiry: datetime
    :::
    ```
  - `/homes.muon` — Homes registered in the system
@@ -110,10 +118,12 @@ The server stores four database files per home (`/{home_id: int >0 <=1_024}/`):
    ```
  - `/perms.muon` - Role permission settings for each user
    ```muon
+   :::
    perm: list record
      id: int >0 <=1_200
      role_id: int >0 <=16
      user_id: list int >0 <=1_200
+   :::
    ```
 
 ## Pages
@@ -126,7 +136,31 @@ The server stores four database files per home (`/{home_id: int >0 <=1_024}/`):
 
 All are at `/{meal_vote_api}`
 
-### `/{home_id}/meals`
+### `/`
+
+ - POST Request (2-step authentication; email, email + pass)
+   ```muon
+   :::
+   email: text >=6 <=254
+   pass: optional text >=50 <=50
+   :::
+   ```
+
+### `/homes/{home_id: int >0 <=1_024}`
+
+ - GET Reponse (action: **view**)
+   ```muon
+   :::
+   name: text >0 <=50
+   actions: list choice
+     cook
+     edit
+     view
+     vote
+   :::
+   ```
+
+### `/homes/{home_id}/meals`
  
  - GET Reponse (action: **view**)
    ```muon
@@ -137,21 +171,13 @@ All are at `/{meal_vote_api}`
    :::
    ```
 
-### `/{home_id}/meals/{meal_id: int >0 <=1_200}`
+### `/homes/{home_id}/meals/{meal_id: int >0 <=1_200}`
 
  - GET Response (action: **view**)
    ```muon
    :::
-   name: text >0 <=100
    desc: text <=32_000
    :::
-   ```
- - POST Request (action: **edit**)
-   ```muon
-   :::
-   name: text >0 <=100
-   desc: text <=32_000
-   ::: 
    ```
  - PATCH Request (action: **edit**)
    ```muon
@@ -160,30 +186,84 @@ All are at `/{meal_vote_api}`
    desc: optional text <=32_000
    ::: 
    ```
-
-### `/{home_id}/perms/{user_id: int >0 <=1_200}`
-
- - GET Request (action: **edit**)
+ - POST Request (action: **edit**)
    ```muon
    :::
-   role: int >0 <=16
-   actions: record
-     cook: bool
-     edit: bool
-     view: bool
-     vote: bool
-   :::
+   name: text >0 <=100
+   desc: text <=32_000
+   ::: 
    ```
- - PUT Request (action: **edit**)
+
+### `/homes/{home_id}/perms`
+ 
+ - GET Response (**`home.user_id` only**)
    ```muon
    :::
-   role: int >0 <=16
+   perm:
+     user_id: int >0 <=1_200
+     role_id: int >0 <=16
+     actions: record
+       cook: bool
+       edit: bool
+       view: bool
+       vote: bool
    :::
    ```
 
-### `/{home_id}/votes`
+### `/homes/{home_id}/perms/{user_id: int >0 <=1_200}`
 
- - GET Request (action: **view**)
+ - PUT Request (**`home.user_id` only**)
+   ```muon
+   :::
+   role_id: int >0 <=16
+   :::
+   ```
+
+### `/homes/{home_id}/roles`
+
+ - GET Response (**`home.user_id` only**)
+   ```muon
+   :::
+   role: list record
+     id: int >0 <=16
+     name: text >=3 <=32
+     actions: list choice
+       cook
+       edit
+       view
+       vote
+   :::
+   ```
+
+### `/homes/{home_id}/roles/{role_id: int >0 <=16}`
+
+ - DELETE (**`home.user_id` only**)
+ - PATCH Request (**`home.user_id` only**)
+   ```muon
+   :::
+   name: optional text >=3 <=32
+   actions: optional list choice
+     cook
+     edit
+     view
+     vote
+   :::
+   ```
+ - POST Request (**`home.user_id` only**)
+   ```muon
+   :::
+   name: text >=3 <=32
+   actions: list choice
+     cook
+     edit
+     view
+     vote
+   :::
+   ```
+
+### `/homes/{home_id}/votes`
+
+ - GET Response (action: **view**)
    ```muon
    :::
    vote: list record
@@ -192,11 +272,30 @@ All are at `/{meal_vote_api}`
    :::
    ```
 
-### `/{home_id}/votes/{meal_id: int >0 <=1_200}`
+### `/homes/{home_id}/votes/{meal_id: int >0 <=1_200}`
 
  - PUT Request (action: **vote**)
    ```muon
    :::
    has_vote: bool
+   :::
+   ```
+
+### `/users`
+
+ - POST Request (no permissions required, use email verification)
+   ```muon
+   :::
+   name: text >0 <=64
+   email: text >=6 <=254
+   :::
+   ```
+
+### `/users/{user_id: int >0 <=1_200}`
+
+ - DELETE Request (no permissions required, use email verification)
+   ```muon
+   :::
+   email: text >=6 <=254
    :::
    ```
