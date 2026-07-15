@@ -170,6 +170,13 @@ All are at `/{meal_vote_api}`
      name: text >0 <=100
    :::
    ```
+ - POST Request (action: **edit**)
+   ```muon
+   :::
+   name: text >0 <=100
+   desc: text <=32_000
+   ::: 
+   ```
 
 ### `/homes/{home_id}/meals/{meal_id: int >0 <=1_200}`
 
@@ -184,13 +191,6 @@ All are at `/{meal_vote_api}`
    :::
    name: optional text >0 <=100
    desc: optional text <=32_000
-   ::: 
-   ```
- - POST Request (action: **edit**)
-   ```muon
-   :::
-   name: text >0 <=100
-   desc: text <=32_000
    ::: 
    ```
 
