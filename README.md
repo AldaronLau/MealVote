@@ -234,6 +234,17 @@ All are at `/{meal_vote_api}`
        vote
    :::
    ```
+ - POST Request (**`home.user_id` only**)
+   ```muon
+   :::
+   name: text >=3 <=32
+   actions: list choice
+     cook
+     edit
+     view
+     vote
+   :::
+   ```
 
 ### `/homes/{home_id}/roles/{role_id: int >0 <=16}`
 
@@ -243,17 +254,6 @@ All are at `/{meal_vote_api}`
    :::
    name: optional text >=3 <=32
    actions: optional list choice
-     cook
-     edit
-     view
-     vote
-   :::
-   ```
- - POST Request (**`home.user_id` only**)
-   ```muon
-   :::
-   name: text >=3 <=32
-   actions: list choice
      cook
      edit
      view
@@ -297,5 +297,12 @@ All are at `/{meal_vote_api}`
    ```muon
    :::
    email: text >=6 <=254
+   :::
+   ```
+ - PATCH Request (allowed after logged in, no additional permissions required)
+   ```muon
+   :::
+   name: optional text >0 <=64
+   email: optional text >=6 <=254
    :::
    ```
