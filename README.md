@@ -71,10 +71,11 @@ The server stores two database files per instance:
    home: list record
      id: int >0 <=1_024
      name: text >0 <=50
+     user_id: int >0 <=1_200
    :::
    ```
 
-The server stores three database files per home (`/{home_id: int >0 <=1_024}/`):
+The server stores four database files per home (`/{home_id: int >0 <=1_024}/`):
 
  - `/meals.muon` — The meals available to vote for
    ```muon
@@ -94,12 +95,11 @@ The server stores three database files per home (`/{home_id: int >0 <=1_024}/`):
      user_id: int >0 <=1_200
    :::
    ```
- - `/roles.muon` - Which roles are assigned to who for the home
+ - `/roles.muon` - Which roles exist for the home
    ```muon
    :::
    role: list record
      id: int >0 <=16
-     user_id: list int >0 <=1_200
      name: text >=3 <=32
      actions: list choice
        cook
@@ -107,6 +107,13 @@ The server stores three database files per home (`/{home_id: int >0 <=1_024}/`):
        view
        vote
    :::
+   ```
+ - `/perms.muon` - Role permission settings for each user
+   ```muon
+   perm: list record
+     id: int >0 <=1_200
+     role_id: int >0 <=16
+     user_id: list int >0 <=1_200
    ```
 
 ## Pages
