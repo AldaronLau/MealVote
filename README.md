@@ -94,14 +94,14 @@ The server stores three database files per home (`/{home_id: int >0 <=1_024}/`):
      user_id: int >0 <=1_200
    :::
    ```
- - `/roles.muon` - Who has what role for the home
+ - `/roles.muon` - Which roles are assigned to who for the home
    ```muon
    :::
-   vote: list record
-     id: int >0 <=1_500_000
-     home_id: int >0 <=1_024
-     user_id: int >0 <=1_200
-     role: list choice
+   role: list record
+     id: int >0 <=16
+     user_id: list int >0 <=1_200
+     name: text >=3 <=32
+     actions: list choice
        cook
        edit
        view
@@ -165,18 +165,17 @@ All are at `/{meal_vote_api}`
  - GET Request (role: **edit**)
    ```muon
    :::
-   cook: bool
-   edit: bool
-   view: bool
-   vote: bool
+   role: int >0 <=16
+   actions: record
+     cook: bool
+     edit: bool
+     view: bool
+     vote: bool
    :::
    ```
  - PUT Request (role: **edit**)
    ```muon
    :::
-   cook: bool
-   edit: bool
-   view: bool
-   vote: bool
+   role: int >0 <=16
    :::
    ```
