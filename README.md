@@ -120,6 +120,7 @@ The server stores four database files per home (`/{home_id: int >0 <=1_024}/`):
 
  - Meal list / login (default page), lists the meals available
  - Meal creation / editing page
+ - Invite, permissions, and role editing page
 
 ## HTTP API
 
@@ -127,7 +128,7 @@ All are at `/{meal_vote_api}`
 
 ### `/{home_id}/meals`
  
- - GET Reponse (role: **view**)
+ - GET Reponse (action: **view**)
    ```muon
    :::
    meal: list record
@@ -138,21 +139,21 @@ All are at `/{meal_vote_api}`
 
 ### `/{home_id}/meals/{meal_id: int >0 <=1_200}`
 
- - GET Response (role: **view**)
+ - GET Response (action: **view**)
    ```muon
    :::
    name: text >0 <=100
    desc: text <=32_000
    :::
    ```
- - POST Request (role: **edit**)
+ - POST Request (action: **edit**)
    ```muon
    :::
    name: text >0 <=100
    desc: text <=32_000
    ::: 
    ```
- - PATCH Request (role: **edit**)
+ - PATCH Request (action: **edit**)
    ```muon
    :::
    name: optional text >0 <=100
@@ -160,16 +161,9 @@ All are at `/{meal_vote_api}`
    ::: 
    ```
 
-### `/{home_id}/votes/{meal_id: int >0 <=1_200}`
- - PUT Request (role: **vote**)
-   ```muon
-   :::
-   has_vote: bool
-   :::
-   ```
+### `/{home_id}/perms/{user_id: int >0 <=1_200}`
 
-### `/{home_id}/roles/{user_id: int >0 <=1_200}`
- - GET Request (role: **edit**)
+ - GET Request (action: **edit**)
    ```muon
    :::
    role: int >0 <=16
@@ -180,9 +174,29 @@ All are at `/{meal_vote_api}`
      vote: bool
    :::
    ```
- - PUT Request (role: **edit**)
+ - PUT Request (action: **edit**)
    ```muon
    :::
    role: int >0 <=16
+   :::
+   ```
+
+### `/{home_id}/votes`
+
+ - GET Request (action: **view**)
+   ```muon
+   :::
+   vote: list record
+     meal_id: int >0 <=1_200
+     user_id: int >0 <=1_200
+   :::
+   ```
+
+### `/{home_id}/votes/{meal_id: int >0 <=1_200}`
+
+ - PUT Request (action: **vote**)
+   ```muon
+   :::
+   has_vote: bool
    :::
    ```
