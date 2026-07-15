@@ -274,6 +274,7 @@ All are at `/{meal_vote_api}`
 
 ### `/homes/{home_id}/votes/{meal_id: int >0 <=1_200}`
 
+ - DELETE Request (action: **cook**)
  - PUT Request (action: **vote**)
    ```muon
    :::
