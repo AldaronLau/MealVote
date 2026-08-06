@@ -34,13 +34,13 @@ pub fn build_html(_opts: &dyn Opts) {
 
     // Set up visible page
     let mut body = html.body();
-    let mut main = body.main();
 
     // Wasm linking
-    main.script()
+    body.script()
         .r#type("module")
         .cdata(r#"import init, {} from './ui.js';init("./ui_bg.wasm");"#);
 
+    let _main = body.main();
     let res = concat!(env!("CARGO_MANIFEST_DIR"), "/../res");
     let build = concat!(env!("CARGO_MANIFEST_DIR"), "/../build");
 
