@@ -1,6 +1,6 @@
 mod logger;
 
-use async_main::{LocalSpawner, async_main};
+use async_main::LocalSpawner;
 
 use self::logger::Logger;
 
@@ -11,7 +11,7 @@ fn init() {
     log::set_max_level(log::LevelFilter::Info);
 }
 
-#[async_main]
+#[async_main::async_main]
 async fn main(_spawner: LocalSpawner) {
     init();
     log::info!("Hello, world!");

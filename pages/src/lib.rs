@@ -12,13 +12,14 @@ pub fn build_html() -> Tree {
     let mut html = tree.html();
     let mut head = html.head();
 
-    head.meta().charset("utf-8");
+    head.meta().charset("utf-8").close();
     head.meta()
         .name("viewport")
-        .content("width=device-width, initial-scale=1");
+        .content("width=device-width, initial-scale=1")
+        .close();
     head.title_el().cdata("MealVote").close();
-    head.base().href("");
-    head.link().rel("icon").href("icon.svg");
+    head.base().href("").close();
+    head.link().rel("icon").href("icon.svg").close();
 
     // Set up style
     let mut css = String::new();
@@ -31,6 +32,7 @@ pub fn build_html() -> Tree {
     .ok();
 
     head.style_el().cdata(css).close();
+    head.close();
 
     // Set up visible page
     let mut body = html.body();
@@ -38,9 +40,12 @@ pub fn build_html() -> Tree {
     // Wasm linking
     body.script()
         .r#type("module")
-        .cdata(r#"import init, {} from './ui.js';init("./ui_bg.wasm");"#);
+        .cdata(r#"import init, {} from './ui.js';init("./ui_bg.wasm");"#)
+        .close();
 
     let _main = body.main();
 
+    body.close();
+    html.close();
     tree
 }
