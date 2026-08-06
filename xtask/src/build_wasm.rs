@@ -64,7 +64,7 @@ pub fn build_wasm(_opts: &dyn Opts) {
     // Run wasm-bindgen
     eprintln!("     {} ui", "Binding".green().bold());
     wasm_bindgen(
-        &format!("{target}/wasm32-unknown-unknown/release/ui.wasm"),
+        &format!("{target}/wasm32-unknown-unknown/release-wasm/ui.wasm"),
         build,
     );
     // Run wasm-opt
