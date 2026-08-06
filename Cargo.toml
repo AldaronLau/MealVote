@@ -64,11 +64,11 @@ version = "0.6.0"
 features = ["serde"]
 
 [workspace.dependencies.serde]
-version = "1.0.228"
+version = "1.0.229"
 features = ["derive"]
 
 [workspace.dependencies.tokio]
-version = "1.52.3"
+version = "1.53.1"
 features = ["full"]
 
 [workspace.dependencies.tower]
