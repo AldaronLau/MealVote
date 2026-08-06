@@ -16,7 +16,7 @@ pub fn build_html(_opts: &dyn Opts) {
     head.meta()
         .name("viewport")
         .content("width=device-width, initial-scale=1");
-    head.title("MealVote");
+    head.title_el().cdata("MealVote").close();
     head.base().href("");
     head.link().rel("icon").href("icon.svg");
 
