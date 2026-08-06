@@ -2,12 +2,18 @@
 
 /// MuON database files
 pub mod file {
-    /// File format for `meals.muon`
-    pub mod meals;
-    /// File format for `users.muon`
+    /// File format for `/{home_id}/meals.muon`
+    pub mod home_meals;
+    /// File format for `/{home_id}/perms.muon`
+    pub mod home_perms;
+    /// File format for `/{home_id}/roles.muon`
+    pub mod home_roles;
+    /// File format for `/{home_id}/votes.muon`
+    pub mod home_votes;
+    /// File format for `/homes.muon`
+    pub mod homes;
+    /// File format for `/users.muon`
     pub mod users;
-    /// File format for `votes.muon`
-    pub mod votes;
 }
 
 /// HTTP at `:mealvote_server/api/{mod_name}`
