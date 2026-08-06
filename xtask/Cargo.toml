@@ -4,6 +4,5 @@ edition = "2024"
 
 [dependencies]
 clot.workspace = true
-hatmil.workspace = true
 pages.workspace = true
 yansi.workspace = true
