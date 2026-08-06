@@ -11,6 +11,7 @@ pub enum Error {
 #[derive(
     Clone, PartialEq, Eq, Hash, Debug, serde::Deserialize, serde::Serialize,
 )]
+#[repr(transparent)]
 pub struct MealName(Box<str>);
 
 impl MealName {

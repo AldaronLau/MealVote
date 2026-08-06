@@ -8,14 +8,14 @@ pub enum Error {
     TooLarge(u16),
 }
 
-/// Meal ID (more than 0, less than 1\_200)
+/// Home ID (more than 0, less than 1\_024)
 #[derive(
     Clone, PartialEq, Eq, Hash, Debug, serde::Deserialize, serde::Serialize,
 )]
 #[repr(transparent)]
-pub struct MealId(RangedNonZeroU16<1, MEAL_ID_MAX_VALUE>);
+pub struct HomeId(RangedNonZeroU16<1, HOME_ID_MAX_VALUE>);
 
-impl MealId {
+impl HomeId {
     pub fn new(value: u16) -> Result<Self> {
         Ok(Self(
             RangedNonZeroU16::with_u16(value)
@@ -25,4 +25,4 @@ impl MealId {
     }
 }
 
-const MEAL_ID_MAX_VALUE: u16 = 1_200;
+const HOME_ID_MAX_VALUE: u16 = 1_024;

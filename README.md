@@ -60,7 +60,7 @@ The server stores two database files per instance:
    :::
    user: list record
      id: int >0 <=1_200
-     name: text >0 <=64
+     name: text >0 <=128
      email: text >=6 <=254
      verified: bool
      # Generated code for email authentication

@@ -1,6 +1,6 @@
 use validation::{meal_id::MealId, meal_name::MealName};
 
-/// List for [`Get`] request.
+/// List for [`GetResponse`] request.
 #[derive(serde::Deserialize, serde::Serialize)]
 pub struct GetResponseMeal {
     pub id: MealId,
