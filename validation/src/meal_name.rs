@@ -5,6 +5,7 @@ pub enum Error {
     Empty,
     TooLong(usize),
     InvalidText(char),
+    TooLarge,
 }
 
 /// Limited character count meal name
@@ -16,6 +17,15 @@ pub struct MealName(Box<str>);
 
 impl MealName {
     pub fn new(name: String) -> Result<Self> {
+        // Check length is doesn't exceed max before going through each char
+        {
+            let octet_len = name.len();
+
+            (octet_len / char::MAX_LEN_UTF8 <= MEAL_NAME_MAX_CHARS)
+                .then_some(())
+                .ok_or(Error::TooLarge)?;
+        }
+
         let mut invalid_char = None;
         let char_count = name
             .chars()
