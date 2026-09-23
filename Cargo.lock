@@ -227,9 +227,9 @@ dependencies = [
 
 [[package]]
 name = "hatmil"
-version = "1.5.0"
+version = "1.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a804488386ceaff16d3b93ed545aad32dfc6df8fcb0282d33379d33153e1d2be"
+checksum = "91756344edfd671744292abd720b4f0408cb25df2e5144f29d33c6600e41889e"
 
 [[package]]
 name = "html"
